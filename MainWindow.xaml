@@ -190,7 +190,7 @@
 						</Grid.RowDefinitions>
 						<StackPanel Background="#777777" Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="10">
 							<Label Content="Recommended Selections:" FontSize="17" VerticalAlignment="Center"/>
-							<Button Name="desktop" Content="Desktop" Margin="7"/>
+							<Button Name="desktoppp" Content="Desktop" Margin="7"/>
 							<Button Name="laptop" Content="Laptop" Margin="7"/>
 							<Button Name="minimal" Content="Minimal" Margin="7"/>
 						</StackPanel>
