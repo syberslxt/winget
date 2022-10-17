@@ -21,10 +21,12 @@
                     <DockPanel.Effect>
                         <DropShadowEffect/>
                     </DockPanel.Effect>
-                    <Button Content="Install" HorizontalAlignment="Left" Height="40" Width="100" BorderThickness="0,0,0,0" FontWeight="Bold" Margin="10,0,10,0" Name="Tab1BT"/>
-                    <Button Content="Tweaks" HorizontalAlignment="Left" Height="40" Width="100" BorderThickness="0,0,0,0" FontWeight="Bold" Margin="0,0,10,0" Name="Tab2BT"/>
-                    <Button Content="Config" HorizontalAlignment="Left" Height="40" Width="100" BorderThickness="0,0,0,0" FontWeight="Bold" Margin="0,0,10,0" Name="Tab3BT"/>
-                    <Image Height="50" Width="100" Name="Icon" Source="https://github.com/syberslxt/winget/blob/main/Syber%20Tools.png?raw=true" Margin="0,0,300,0"/>
+                    <Button Content="Software" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" FontWeight="Bold" Margin="10,0,10,0" Name="Tab1BT"/>
+                    <Button Content="Tweaks" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" FontWeight="Bold" Margin="0,0,10,0" Name="Tab2BT"/>
+                    <Button Content="Config" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" FontWeight="Bold" Margin="0,0,10,0" Name="Tab3BT"/>
+                    <Image Height="50" Width="100" Name="Icon" Source="https://github.com/syberslxt/winget/blob/main/Syber%20Tools.png?raw=true" Margin="220,0,300,0"/>
+                    <Button Content="Install" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" Background="LightGreen" FontWeight="Bold" Margin="0,0,10,0" ToolTip="Install all checked programs" Name="install"/>
+                    <Button Content="Upgrade" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" Background="#FF90EEEC" FontWeight="Bold" Margin="0,0,10,0" ToolTip="Upgrade All Existing Programs on System" Name="InstallUpgrade"/>
                 </DockPanel>
                 <TabControl Grid.Row="1" Padding="0" Name="TabNav" Background="#FFC5C5C5" Grid.RowSpan="1" HorizontalAlignment="Left" Width="1000">
                     <TabItem Header="Install" Visibility="Collapsed" Name="Tab1">
