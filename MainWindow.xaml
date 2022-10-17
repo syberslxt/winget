@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SyberWinGet"
         mc:Ignorable="d"
-        Title="SyberSlxt Tools" Height="594" Width="985" Background="#FFC5C5C5" WindowStartupLocation="CenterScreen">
-    <Border Name="dummy" Grid.Column="0" Grid.Row="0" Margin="0,0,0,20">
+        Title="SyberSlxt Tools" Height="700" Width="1200" Background="#FFC5C5C5" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Border Name="dummy" Grid.Column="0" Grid.Row="0" Margin="0,0,0,0">
         <Viewbox Stretch="Uniform" VerticalAlignment="Top">
             <Grid Background="#FFFFFF" ShowGridLines="False" Name="MainGrid">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -21,26 +20,31 @@
                     <DockPanel.Effect>
                         <DropShadowEffect/>
                     </DockPanel.Effect>
-                    <Button Content="Software" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" FontWeight="Bold" Margin="10,0,10,0" Name="Tab1BT"/>
-                    <Button Content="Tweaks" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" FontWeight="Bold" Margin="0,0,10,0" Name="Tab2BT"/>
-                    <Button Content="Config" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" FontWeight="Bold" Margin="0,0,10,0" Name="Tab3BT"/>
-                    <Image Height="50" Width="100" Name="Icon" Source="https://github.com/syberslxt/winget/blob/main/Syber%20Tools.png?raw=true" Margin="220,0,300,0"/>
-                    <Button Content="Install" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" Background="LightGreen" FontWeight="Bold" Margin="0,0,10,0" ToolTip="Install all checked programs" Name="install"/>
-                    <Button Content="Upgrade" HorizontalAlignment="Left" Height="20" Width="60" BorderThickness="0,0,0,0" Background="#FF90EEEC" FontWeight="Bold" Margin="0,0,10,0" ToolTip="Upgrade All Existing Programs on System" Name="InstallUpgrade"/>
+                    <Image Height="20" Width="20" Name="SoftwareIcon" Source="https://github.com/syberslxt/winget/blob/main/software_download.png?raw=true"/>
+                    <Button Content="Software" HorizontalAlignment="Left" Height="20" Width="60" FontWeight="Bold" Margin="0,0,10,0" Name="Tab1BT"/>
+                    <Image Height="20" Width="20" Name="TweaksIcon" Source="https://github.com/syberslxt/winget/blob/main/tweaks.png?raw=true"/>
+                    <Button Content="Tweaks" HorizontalAlignment="Left" Height="20" Width="60" FontWeight="Bold" Margin="0,0,10,0" Name="Tab2BT"/>
+                    <Image Height="20" Width="20" Name="ConfigIcon" Source="https://github.com/syberslxt/winget/blob/main/config.png?raw=true"/>
+                    <Button Content="Config" HorizontalAlignment="Left" Height="20" Width="60" FontWeight="Bold" Margin="0,0,10,0" Name="Tab3BT"/>
+                    <Image Height="50" Width="100" Name="LogoIcon" Source="https://github.com/syberslxt/winget/blob/main/Syber%20Tools.png?raw=true" Margin="0,0,300,0"/>
                 </DockPanel>
-                <TabControl Grid.Row="1" Padding="0" Name="TabNav" Background="#FFC5C5C5" Grid.RowSpan="1" HorizontalAlignment="Left" Width="1000">
+                <TabControl Grid.Row="1" Padding="0" Name="TabNav" Background="#FFC5C5C5" Grid.RowSpan="1" HorizontalAlignment="Center" Width="1000" SelectionChanged="TabNav_SelectionChanged">
                     <TabItem Header="Install" Visibility="Collapsed" Name="Tab1">
                         <Grid >
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="230"/>
-                                <ColumnDefinition Width="230"/>
-                                <ColumnDefinition Width="230"/>
-                                <ColumnDefinition Width="230"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="500"/>
+                                <RowDefinition Height=".10*"/>
+                                <RowDefinition Height=".10*"/>
+                                <RowDefinition Height=".80*"/>
                             </Grid.RowDefinitions>
-                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="0" Margin="10,10,0,10">
+                            <StackPanel Background="#777777" Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="5">
+                                <Label Content="~ Software ~" FontWeight="Bold" FontSize="17" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Row="1" Grid.Column="0" Margin="5,5,0,5">
                                 <Label Content="Browsers" FontSize="16" FontWeight="Bold" Margin="2,0"/>
                                 <CheckBox Name="Installbrave" Content="Brave" Margin="5,0"/>
                                 <CheckBox Name="Installfirefox" Content="Firefox" Margin="5,0"/>
@@ -56,8 +60,7 @@
                                 <CheckBox Name="Installtelegram" Content="Telegram" Margin="5,0"/>
                                 <CheckBox Name="Installwhatsapp" Content="Whatsapp" Margin="5,0"/>
                                 <CheckBox Name="Installhexchat" Content="Hexchat" Margin="5,0"/>
-                            </StackPanel>
-                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="1" Margin="30,10,0,10">
+
                                 <Label Content="Productive" FontSize="16" FontWeight="Bold" Margin="2,0"/>
                                 <CheckBox Name="Installvscommunity" Content="VS Community 2022" Margin="5,0"/>
                                 <CheckBox Name="Installlvscode" Content="VS Code" Margin="5,0"/>
@@ -69,7 +72,8 @@
                                 <CheckBox Name="Installadobereader" Content="Adobe Reader DC" Margin="5,0"/>
                                 <CheckBox Name="Installfoxitpdf" Content="Foxit PDF" Margin="5,0"/>
                                 <CheckBox Name="Installsumatrapdf" Content="Sumatra PDF" Margin="5,0"/>
-
+                            </StackPanel>
+                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Row="1" Grid.Column="1" Margin="5,5,0,5">
                                 <Label Content="Office / Text" FontSize="16" FontWeight="Bold" Margin="5,0"/>
                                 <CheckBox Name="Installlibreoffice" Content="Libre Office" Margin="5,0"/>
                                 <CheckBox Name="Installonlyoffice" Content="Only Office" Margin="5,0"/>
@@ -83,13 +87,6 @@
                                 <CheckBox Name="Installmongocompass" Content="Mongo Compass" Margin="5,0"/>
                                 <CheckBox Name="Installteamviewer" Content="Teamviewer" Margin="5,0"/>
                                 <CheckBox Name="Installrealvncviewer" Content="RealVNC Viewer" Margin="5,0"/>
-                            </StackPanel>
-                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="2" Margin="30,10,-20,10">
-                                <Label Content="Games" FontSize="16" FontWeight="Bold" Margin="2,0"/>
-                                <CheckBox Name="Installsteam" Content="Steam" Margin="5,0"/>
-                                <CheckBox Name="Installepicgames" Content="Epic Games" Margin="5,0"/>
-                                <CheckBox Name="Installorigin" Content="Origin" Margin="5,0"/>
-                                <CheckBox Name="Installubisoftconnect" Content="Ubisoft Connect" Margin="5,0"/>
 
                                 <Label Content="Multimedia" FontSize="16" FontWeight="Bold" Margin="5,0"/>
                                 <CheckBox Name="Installcidermusicplayer" Content="Cider Music Player" Margin="5,0"/>
@@ -105,6 +102,13 @@
                                 <CheckBox Name="Installimageglass" Content="ImageGlass" Margin="5,0"/>
                                 <CheckBox Name="Installinfranview" Content="InfranView" Margin="5,0"/>
                                 <CheckBox Name="Installkrita" Content="Krita" Margin="5,0"/>
+                            </StackPanel>
+                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Row="1" Grid.Column="2" Margin="5,5,5,5">
+                                <Label Content="Games" FontSize="16" FontWeight="Bold" Margin="2,0"/>
+                                <CheckBox Name="Installsteam" Content="Steam" Margin="5,0"/>
+                                <CheckBox Name="Installepicgames" Content="Epic Games" Margin="5,0"/>
+                                <CheckBox Name="Installorigin" Content="Origin" Margin="5,0"/>
+                                <CheckBox Name="Installubisoftconnect" Content="Ubisoft Connect" Margin="5,0"/>
 
                                 <Label Content="Microsoft Tools" FontSize="16" FontWeight="Bold" Margin="5,0"/>
                                 <CheckBox Name="Installruntime31" Content=".Net Desktop Runtime 3.1" Margin="5,0"/>
@@ -114,8 +118,7 @@
                                 <CheckBox Name="Installcplusplus64bit" Content="Visual C++ 2015-2022 64-Bit" Margin="5,0"/>
                                 <CheckBox Name="Installcplusplus32bit" Content="Visual C++ 2015-2022 32-Bit" Margin="5,0"/>
                                 <CheckBox Name="Installdirextxruntime" Content="DirectX End-User Runtime" Margin="5,0"/>
-                            </StackPanel>
-                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="3" Margin="50,10,-50,10">
+
                                 <Label Content="Utilities" FontSize="16" FontWeight="Bold" Margin="2,0"/>
                                 <CheckBox Name="Install7zip" Content="7-Zip" Margin="5,0"/>
                                 <CheckBox Name="Installbitwarden" Content="Bitwarden" Margin="5,0"/>
@@ -130,10 +133,17 @@
                                 <CheckBox Name="Installvoicemod" Content="Voicemod" Margin="5,0"/>
                                 <CheckBox Name="Installscrcpy" Content="ScrCpy" Margin="5,0"/>
                             </StackPanel>
+                            <DockPanel Background="#FF8E8E8E" Width="1000" Height="50" Margin="5,5,5,5" Grid.Column="2" Grid.Row="0">
+                                <DockPanel.Effect>
+                                    <DropShadowEffect/>
+                                </DockPanel.Effect>
+                                <Button Content="Install" HorizontalAlignment="Center" Height="40" Width="100" Background="LightGreen" FontWeight="Bold" Margin="50,0,0,0" ToolTip="Install all checked programs" Name="install"/>
+                                <Button Content="Upgrade" HorizontalAlignment="Left" Height="40" Width="100" Background="#FF90EEEC" FontWeight="Bold" Margin="10,0,0,0" ToolTip="Upgrade All Existing Programs on System" Name="InstallUpgrade"/>
+                            </DockPanel>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Tweaks" Visibility="Collapsed" Name="Tab2">
-                        <Grid Background="#333333">
+                        <Grid Background="#FFC5C5C5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
@@ -143,8 +153,11 @@
                                 <RowDefinition Height=".10*"/>
                                 <RowDefinition Height=".80*"/>
                             </Grid.RowDefinitions>
+                            <StackPanel Background="#777777" Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="10">
+                                <Label Content="~ TWEAKS ~" FontSize="17" FontWeight="Bold" VerticalAlignment="Center"/>
+                            </StackPanel>
                             <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Row="2" Grid.Column="0" Margin="10,5">
-                                <Label FontSize="16" Content="Essential Tweaks"/>
+                                <Label FontSize="16" FontWeight="Bold" Content="Essential Tweaks"/>
                                 <CheckBox Name="EssTweaksRP" Content="Create Restore Point" Margin="5,0" ToolTip="Creates a Windows Restore point before modifying system. Can use Windows System Restore to rollback to before tweaks were applied"/>
                                 <CheckBox Name="EssTweaksTele" Content="Disable Telemetry" Margin="5,0" ToolTip="Disables Microsoft Telemetry. Note: This will lock many Edge Browser settings. Microsoft spys heavily on you when using the Edge browser."/>
                                 <CheckBox Name="EssTweaksWifi" Content="Disable Wifi-Sense" Margin="5,0" ToolTip="Wifi Sense is a spying service that phones home all nearby scaned wifi networks and your current geo location."/>
@@ -159,15 +172,20 @@
 
                             </StackPanel>
                             <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Row="2" Grid.Column="1" Margin="10,5">
-                                <Label FontSize="16" Content="Misc. Tweaks"/>
+                                <Label FontSize="16" FontWeight="Bold" Content="Misc. Tweaks"/>
                                 <CheckBox Name="MiscTweaksNum" Content="Enable NumLock on Startup" Margin="5,0" ToolTip="This creates a time vortex and send you back to the past... or it simply turns numlock on at startup"/>
                                 <CheckBox Name="MiscTweaksExt" Content="Show File Extensions" Margin="5,0"/>
                                 <CheckBox Name="MiscTweaksDisplay" Content="Set Display for Performance" Margin="5,0" ToolTip="Sets the system preferences to performance. You can do this manually with sysdm.cpl as well."/>
                                 <CheckBox Name="MiscTweaksUTC" Content="Set Time to UTC (Dual Boot)" Margin="5,0" ToolTip="Essential for computers that are dual booting. Fixes the time sync with Linux Systems."/>
                                 <CheckBox Name="MiscTweaksRightClickMenu" Content="Set Classic Right-Click Menu " Margin="5,0" ToolTip="Great Windows 11 tweak to bring back good context menus when right clicking things in explorer."/>
-                                <Button Name="tweaksbutton" Background="AliceBlue" Content="Run Tweaks" Margin="20,10,20,0"/>
-                                <Button Name="undoall" Background="AliceBlue" Content="Undo All Tweaks" Margin="20,5"/>
                             </StackPanel>
+                            <DockPanel Background="#FF8E8E8E" Width="300" Height="50" Margin="5,5,-170,5" Grid.Column="2" Grid.Row="0">
+                                <DockPanel.Effect>
+                                    <DropShadowEffect/>
+                                </DockPanel.Effect>
+                                <Button Content="Run Tweaks" HorizontalAlignment="Center" Height="40" Width="100" Background="LightGreen" FontWeight="Bold" Margin="50,0,0,0" ToolTip="Install all checked programs" Name="tweaksbutton"/>
+                                <Button Content="Undo All Tweaks" HorizontalAlignment="Left" Height="40" Width="100" Background="#FFFDC240" FontWeight="Bold" Margin="10,0,0,0" ToolTip="Upgrade All Existing Programs on System" Name="undoall"/>
+                            </DockPanel>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Config" Visibility="Collapsed" Name="Tab3">
@@ -176,27 +194,37 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="0" Margin="10,5">
-                                <Label Content="Features" FontSize="16"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height=".10*"/>
+                                <RowDefinition Height=".80*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Background="#777777" Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="5">
+                                <Label Content="~ Config ~" FontWeight="Bold" FontSize="17" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="0" Grid.Row="1" Margin="10,5">
+                                <Label Content="Features" FontSize="16" FontWeight="Bold"/>
                                 <CheckBox Name="Featuresdotnet" Content="All .Net Framework (2,3,4)" Margin="5,0"/>
                                 <CheckBox Name="Featureshyperv" Content="HyperV Virtualization" Margin="5,0"/>
                                 <CheckBox Name="Featureslegacymedia" Content="Legacy Media (WMP, DirectPlay)" Margin="5,0"/>
                                 <CheckBox Name="Featurenfs" Content="NFS - Network File System" Margin="5,0"/>
                                 <CheckBox Name="Featurewsl" Content="Windows Subsystem for Linux" Margin="5,0"/>
-                                <Button Name="FeatureInstall" FontSize="14" Background="AliceBlue" Content="Install Features" Margin="20,5,20,0" Padding="10"/>
-                                <Label Content="Fixes" FontSize="16"/>
-                                <Button Name="PanelDISM" FontSize="14" Background="AliceBlue" Content="System Corruption Scan" Margin="20,5,20,0" Padding="10"/>
-
                             </StackPanel>
-                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="1" Margin="10,5">
-                                <Label Content="Legacy Windows Panels" FontSize="16"/>
-                                <Button Name="Panelcontrol" FontSize="14" Background="AliceBlue" Content="Control Panel" Margin="20,5,20,5" Padding="10"/>
-                                <Button Name="Panelnetwork" FontSize="14" Background="AliceBlue" Content="Network Connections" Margin="20,0,20,5" Padding="10"/>
-                                <Button Name="Panelpower" FontSize="14" Background="AliceBlue" Content="Power Panel" Margin="20,0,20,5" Padding="10"/>
-                                <Button Name="Panelsound" FontSize="14" Background="AliceBlue" Content="Sound Settings" Margin="20,0,20,5" Padding="10"/>
-                                <Button Name="Panelsystem" FontSize="14" Background="AliceBlue" Content="System Properties" Margin="20,0,20,5" Padding="10"/>
-                                <Button Name="Paneluser" FontSize="14" Background="AliceBlue" Content="User Accounts" Margin="20,0,20,5" Padding="10"/>
+                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="1" Grid.Row="1" Margin="10,5">
+                                <Label Content="Legacy Windows Panels" FontSize="16" FontWeight="Bold"/>
+                                <Button Content="Control Panel" HorizontalAlignment="Left" Height="40" Width="150" Background="White" FontWeight="Bold" Margin="5,0,0,0" ToolTip="Upgrade All Existing Programs on System" Name="Panelcontrol"/>
+                                <Button Content="Network Connections" HorizontalAlignment="Left" Height="40" Width="150" Background="White" FontWeight="Bold" Margin="5,0,0,0" ToolTip="Upgrade All Existing Programs on System" Name="Panelnetwork"/>
+                                <Button Content="Power Panel" HorizontalAlignment="Left" Height="40" Width="150" Background="White" FontWeight="Bold" Margin="5,0,0,0" ToolTip="Upgrade All Existing Programs on System" Name="Panelpower"/>
+                                <Button Content="Sound Settings" HorizontalAlignment="Left" Height="40" Width="150" Background="White" FontWeight="Bold" Margin="5,0,0,0" ToolTip="Upgrade All Existing Programs on System" Name="Panelsound"/>
+                                <Button Content="System Properties" HorizontalAlignment="Left" Height="40" Width="150" Background="White" FontWeight="Bold" Margin="5,0,0,0" ToolTip="Upgrade All Existing Programs on System" Name="Panelsystem"/>
+                                <Button Content="User Accounts" HorizontalAlignment="Left" Height="40" Width="150" Background="White" FontWeight="Bold" Margin="5,0,0,0" ToolTip="Upgrade All Existing Programs on System" Name="Paneluser"/>
                             </StackPanel>
+                            <DockPanel Background="#FF8E8E8E" Width="480" Height="50" Margin="5,5,5,5" Grid.Column="0" Grid.Row="0">
+                                <DockPanel.Effect>
+                                    <DropShadowEffect/>
+                                </DockPanel.Effect>
+                                <Button Content="Install Features" HorizontalAlignment="Center" Height="40" Width="150" Background="LightGreen" FontWeight="Bold" Margin="70,0,0,0" ToolTip="Install all checked programs" Name="FeatureInstall"/>
+                                <Button Content="System Corruption Scan" HorizontalAlignment="Left" Height="40" Width="150" Background="#FF40DFFD" FontWeight="Bold" Margin="10,0,0,0" ToolTip="Upgrade All Existing Programs on System" Name="PanelDISM"/>
+                            </DockPanel>
                         </Grid>
                     </TabItem>
                 </TabControl>
